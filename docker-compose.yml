@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  reddit-sentiment-dashboard:
+    container_name: reddit-sentiment-dashboard
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:5555:5555"
+    command:
+      "python main.py"
+    volumes:
+      - ./cardiffnlp:/home/notroot/cardiffnlp
+    env_file: .env
